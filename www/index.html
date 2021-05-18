@@ -496,7 +496,7 @@
                 },
 
                 toggleTodo: function (todo) {
-                    this.$http.put('api.php', { id: todo.id, title: todo.title, completed: todo.completed });
+                    this.$http.put('api.php', { id: todo.id, title: todo.title, completed: !todo.completed });
                 },
 
                 removeTodo: function (todo) {

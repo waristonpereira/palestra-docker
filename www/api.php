@@ -24,9 +24,8 @@ try
             {
                 $result = $db->prepare("UPDATE todo SET title=?, completed=? WHERE id=?");
                 $result->bindValue(1, $data['title'], PDO::PARAM_STR);
-                $result->bindValue(2, ($data['completed'] == 'false'), PDO::PARAM_BOOL);
+                $result->bindValue(2, $data['completed'], PDO::PARAM_INT);
                 $result->bindValue(3, $data['id'], PDO::PARAM_INT);
-                print("ok");
             }
             else
             {
