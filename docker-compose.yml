@@ -1,0 +1,16 @@
+php:
+    build: .
+    ports:
+        - "80:80"
+    volumes:
+        - ./www:/var/www/html
+    links:
+        - db
+db:
+    image: mysql:5.7
+    volumes:
+        - /var/lib/mysql
+        - ./database:/docker-entrypoint-initdb.d
+    environment:
+        - MYSQL_ROOT_PASSWORD=todo-app-pass
+        - MYSQL_DATABASE=todo
